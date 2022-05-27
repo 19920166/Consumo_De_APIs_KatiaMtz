@@ -1,0 +1,25 @@
+:host {
+  text-align: center;
+}
+nz-header, nz-content {
+  background: #FFFFFF;
+}
+
+nz-layout {
+  margin-bottom: 48px;
+}
+
+nz-layout nz-layout,
+nz-layout:last-child {
+  margin: 0;
+}
+
+h1{
+  size: 30px;
+  text-decoration-style: solid;
+}
+
+img {
+  width: 440px;
+  height: 440px;
+}

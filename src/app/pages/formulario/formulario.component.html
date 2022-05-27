@@ -1,0 +1,145 @@
+<!-- <nz-layout>
+  <nz-sider>
+    <h1>Formulario de Registro de Afiliados</h1>
+  </nz-sider>
+  <nz-layout>
+    <nz-content>
+      <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+            <input nz-input formControlName="email" id="email" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Contraseña</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+            <input
+              nz-input
+              type="password"
+              id="password"
+              formControlName="password"
+              (ngModelChange)="updateConfirmValidator()"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirmar Contraseña</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" [nzErrorTip]="errorTpl">
+            <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+            <ng-template #errorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">Please confirm your password!</ng-container>
+              <ng-container *ngIf="control.hasError('confirm')">
+                Two passwords that you enter is inconsistent!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label
+            [nzSm]="6"
+            [nzXs]="24"
+            nzFor="nickname"
+            nzRequired
+            nzTooltipTitle="What do you want other to call you"
+          >
+            <span>Nombre</span>
+          </nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your nickname!">
+            <input nz-input id="name" formControlName="name" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Número de Teléfono</nz-form-label>
+          <nz-form-control
+            [nzSm]="14"
+            [nzXs]="24"
+            [nzValidateStatus]="validateForm.controls['phoneNumber']"
+            nzErrorTip="Please input your phone number!"
+          >
+            <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
+              <ng-template #addOnBeforeTemplate>
+                <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+                  <nz-option nzLabel="+86" nzValue="+86"></nz-option>
+                  <nz-option nzLabel="+87" nzValue="+87"></nz-option>
+                </nz-select>
+              </ng-template>
+              <input formControlName="phoneNumber" id="'phoneNumber'" nz-input />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="website" nzRequired>Sitio Web</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input website!">
+            <input nz-input id="website" formControlName="website" placeholder="website" />
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item nz-row class="register-area">
+          <nz-form-control [nzSpan]="14" [nzOffset]="6">
+            <label nz-checkbox formControlName="agree">
+            <span>
+              I have read the
+              <a>agreement</a>
+            </span>
+            </label>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row class="register-area">
+          <nz-form-control [nzSpan]="14" [nzOffset]="6">
+            <button nz-button nzType="primary">Registrar</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-content>
+
+  </nz-layout>
+</nz-layout>
+-->
+<div style="background: #ECECEC;padding:30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8">
+      <nz-card nzTitle="Consulta de Clima" nzHoverable style="width:240px" [nzCover]="coverTemplate">
+        <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Ingresa la ciudad!">
+              <nz-input-group nzPrefixIcon="global">
+                <input type="text" nz-input formControlName="ciudad" placeholder="Ciudad ej: london" #cityName/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Ingresa el código!">
+              <nz-input-group nzPrefixIcon="lock">
+                <input type="text" nz-input formControlName="codigo" placeholder="Código ej: uk" #countryCode/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <div nz-row class="login-form-margin">
+            <div nz-col [nzSpan]="12">
+
+            </div>
+
+          </div>
+          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Consulta</button>
+
+        </form>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img alt="example" src="./assets/ciudad.png" />
+      </ng-template>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <nz-card *ngIf="weather" nzTitle="Resultados del clima">
+        <p>Temperatura: {{weather.main.temp}} °C</p>
+        <p>Latitud: {{weather.coord.lat}}</p>
+        <p>Longitud: {{weather.coord.lon}}</p>
+        <p>Humedad: {{weather.main.humidity}}</p>
+        <p>Temperatura: {{weather.main.temp}}</p>
+        <p>Presión: {{weather.main.pressure}}</p>
+        <p>Temperatura: {{weather.main.temp}}</p>
+        <p>Descripción: {{weather.weather[0].description}}</p>
+      </nz-card>
+    </div>
+  </div>
+</div>
